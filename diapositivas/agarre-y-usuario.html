@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Agarre y usuario ideal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#eceff1; --slide:#f8f9fa; --ink:#1a2227; --muted:#5b6870; --line:#d3d9dd;
+  --accent:#c4663f; --accent-soft:#f6e3d9; --chip:#e3e8eb; --good:#3f7d64; --bad:#b4483a;
+  --display:"Bricolage Grotesque","Avenir Next",system-ui,sans-serif;
+  --body:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111518; --slide:#181d21; --ink:#e4e9ec; --muted:#93a0a8; --line:#2a3238;
+  --accent:#e08060; --accent-soft:#3a2219; --chip:#222a30; --good:#6fbf9c; --bad:#e07a6a}}
+:root[data-theme="dark"]{
+  --bg:#111518; --slide:#181d21; --ink:#e4e9ec; --muted:#93a0a8; --line:#2a3238;
+  --accent:#e08060; --accent-soft:#3a2219; --chip:#222a30; --good:#6fbf9c; --bad:#e07a6a}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);padding:16px}
+.deck{display:flex;flex-direction:column;align-items:center;gap:20px}
+/* Cada diapositiva se diseña a 1920×1080 y se escala al ancho disponible */
+.frame{width:100%;max-width:1280px;aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--line)}
+.slide{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;background:var(--slide);
+  padding:48px 72px 30px;display:flex;flex-direction:column;font-size:21px;line-height:1.38}
+.kicker{font-size:18px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+h1{font-family:var(--display);font-weight:700;font-size:50px;line-height:1.06;letter-spacing:-.01em;margin:0 0 8px;text-wrap:balance}
+.lede{color:var(--muted);font-size:21px;margin:0 0 20px;max-width:96ch}
+.cols{display:grid;gap:32px;min-height:0}
+.refs{margin-top:auto;border-top:1px solid var(--line);padding-top:10px;font-size:12.6px;line-height:1.34;color:var(--muted);columns:2;column-gap:36px}
+.refs p{margin:0 0 3px;padding-left:22px;text-indent:-22px;break-inside:avoid}
+.refs b{color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;display:block;text-indent:0;padding:0;margin-bottom:4px}
+cite{font-style:normal;color:var(--muted);font-size:.86em;white-space:nowrap}
+em{font-style:italic}
+
+/* ——— Diapositiva 1: agarres ——— */
+.s1 .cols{grid-template-columns:1fr 470px}
+table{border-collapse:collapse;width:100%;font-size:20px}
+thead th{font-size:15px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center;padding:0 6px 10px;border-bottom:2px solid var(--ink);vertical-align:bottom}
+thead th:first-child{text-align:left}
+tbody td{padding:9px 6px;border-bottom:1px solid var(--line);vertical-align:middle;text-align:center}
+tbody td:first-child{text-align:left}
+.g-name{font-weight:600;font-size:21px;display:block}
+.g-why{display:block;color:var(--muted);font-size:16px;line-height:1.3;margin-top:2px}
+.sc{display:inline-block;min-width:38px;font-weight:600;font-variant-numeric:tabular-nums;border-radius:6px;padding:2px 0}
+.s-1{background:color-mix(in srgb,var(--bad) 22%,transparent)}
+.s-2{background:color-mix(in srgb,var(--bad) 12%,transparent)}
+.s-3{background:var(--chip)}
+.s-4{background:color-mix(in srgb,var(--good) 14%,transparent)}
+.s-5{background:color-mix(in srgb,var(--good) 26%,transparent)}
+.tot{font-family:var(--display);font-weight:700;font-size:28px;font-variant-numeric:tabular-nums}
+tr.win td{background:var(--accent-soft)}
+tr.win td:first-child{box-shadow:inset 5px 0 0 var(--accent)}
+tr.win .tot{color:var(--accent)}
+.badge{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--slide);border-radius:999px;padding:2px 10px;margin-left:8px;vertical-align:3px}
+.legend{font-size:15px;color:var(--muted);margin:10px 0 0;line-height:1.38}
+.legend b{color:var(--ink)}
+.side{display:flex;flex-direction:column;gap:12px}
+.verdict{background:var(--ink);color:var(--slide);border-radius:12px;padding:16px 22px}
+.verdict h2{font-family:var(--display);font-size:26px;margin:0 0 6px;line-height:1.15}
+.verdict p{margin:0;font-size:17px;opacity:.9}
+.fact{border:1px solid var(--line);border-radius:12px;padding:10px 18px;display:grid;grid-template-columns:132px 1fr;gap:14px;align-items:center}
+.fact .n{font-family:var(--display);font-weight:700;font-size:38px;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.fact p{margin:0;font-size:16px;line-height:1.32}
+.nuance{margin:0;font-size:15px;color:var(--muted);line-height:1.4;border-left:3px solid var(--line);padding-left:14px}
+
+/* ——— Diapositiva 2: usuario ideal ——— */
+.s2 .cols{grid-template-columns:400px 1fr}
+.s2 .refs{columns:3;font-size:11.8px;column-gap:28px}
+.persona{background:var(--ink);color:var(--slide);border-radius:14px;padding:22px 26px;display:flex;flex-direction:column;gap:11px}
+.persona h2{font-family:var(--display);font-size:30px;line-height:1.1;margin:0}
+.persona p{margin:0;font-size:17px;line-height:1.38;opacity:.92}
+.persona .who{display:flex;flex-direction:column;gap:8px;margin:4px 0}
+.persona .who div{display:grid;grid-template-columns:96px 1fr;gap:10px;font-size:16.5px;border-top:1px solid color-mix(in srgb,var(--slide) 22%,transparent);padding-top:8px}
+.persona .who b{color:var(--accent)}
+.persona .why{font-size:16px;opacity:.85}
+.needs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.need{border:1px solid var(--line);border-radius:14px;padding:16px 20px;display:flex;flex-direction:column;gap:9px}
+.need .tag{font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.need h3{font-family:var(--display);font-size:25px;line-height:1.12;margin:0}
+.need .lbl{font-size:13.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.need p{margin:0;font-size:16px;line-height:1.34}
+.need .sol{background:var(--chip);border-radius:10px;padding:10px 12px}
+.fix{margin-top:14px;border:2px solid var(--accent);border-radius:12px;padding:10px 18px;font-size:16.5px;display:flex;gap:16px;align-items:center}
+.fix b{font-family:var(--display);font-size:20px;color:var(--accent);white-space:nowrap}
+
+/* Ajuste de densidad por diapositiva para llenar 1920×1080 */
+.s1 tbody td{padding:13px 6px}
+.s1 .g-name{font-size:22px}
+.s1 .g-why{font-size:17.5px}
+.s1 .legend{font-size:16px}
+.s1 .fact{padding:14px 18px}
+.s1 .fact p{font-size:17px}
+.s1 .verdict p{font-size:18px}
+.s1 .nuance{font-size:16px}
+.s1 .cols{flex:1}
+.s2 .need p{font-size:18px}
+.s2 .need h3{font-size:27px}
+.s2 .need{padding:20px 22px;gap:12px}
+.s2 .persona p{font-size:18px}
+.s2 .persona .who div{font-size:17.5px}
+.s2 .persona .why{font-size:17.5px}
+.s2 .fix{font-size:18px;margin-top:18px}
+.s2 .refs{font-size:12.2px}
+
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  body{padding:0;background:none}
+  .deck{gap:0}
+  .frame{max-width:none;width:1920px;height:1080px;border:0;border-radius:0;break-after:page}
+  .slide{transform:none!important}
+}
+</style>
+</head>
+<body>
+<main class="deck">
+
+<!-- ═════════════ DIAPOSITIVA 1 · AGARRES ═════════════ -->
+<section class="frame"><div class="slide s1" id="s1">
+  <p class="kicker">Ergonomía · Artritis</p>
+  <h1>¿Qué forma de accionar un salero duele menos?</h1>
+  <p class="lede">Comparamos cinco formas de agarrar y presionar con cuatro criterios que vienen de la literatura clínica sobre protección articular. Gana apretar con los cuatro dedos mientras la mano sostiene todo el cuerpo.</p>
+
+  <div class="cols">
+    <div>
+      <table>
+        <thead><tr>
+          <th style="width:52%">Forma de accionar</th>
+          <th>A<br>Pulgar y<br>art. pequeñas</th>
+          <th>B<br>Fuerza pedida<br>vs. disponible</th>
+          <th>C<br>Muñeca: giro<br>o repetición</th>
+          <th>D<br>Control<br>de dosis</th>
+          <th>Total<br>/20</th>
+        </tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="g-name">Girar (molinillo o tapa de rosca)</span>
+              <span class="g-why">Girar y pellizcar son justo los gestos que más duelen en la artritis del pulgar, como abrir un frasco <cite>(AAOS, s. f.)</cite>.</span></td>
+            <td><span class="sc s-2">2</span></td><td><span class="sc s-2">2</span></td><td><span class="sc s-1">1</span></td><td><span class="sc s-3">3</span></td><td class="tot">8</td>
+          </tr>
+          <tr>
+            <td><span class="g-name">Sacudir (salero tradicional)</span>
+              <span class="g-why">La muñeca se dobla una y otra vez. Lo que cae depende de cuántas sacudidas des y del tamaño del orificio, así que nadie sabe cuánto se sirvió.</span></td>
+            <td><span class="sc s-3">3</span></td><td><span class="sc s-4">4</span></td><td><span class="sc s-1">1</span></td><td><span class="sc s-1">1</span></td><td class="tot">9</td>
+          </tr>
+          <tr>
+            <td><span class="g-name">Pinza con el pulgar (botón arriba)</span>
+              <span class="g-why">Cada 1 kg en la punta del pulgar carga unos 12 kg en su base <cite>(Cooney &amp; Chao, 1977)</cite>. Además, la pinza tiene unas 6 veces menos fuerza que la mano entera <cite>(Mathiowetz et al., 1985)</cite>.</span></td>
+            <td><span class="sc s-1">1</span></td><td><span class="sc s-2">2</span></td><td><span class="sc s-4">4</span></td><td><span class="sc s-4">4</span></td><td class="tot">11</td>
+          </tr>
+          <tr>
+            <td><span class="g-name">Empujar con la palma (pulsador tipo bomba)</span>
+              <span class="g-why">Usa una zona grande, como pide la protección articular <cite>(Hammond &amp; Freeman, 2001)</cite>. Pero la muñeca empuja doblada hacia atrás y hay que apoyar el salero en la mesa.</span></td>
+            <td><span class="sc s-4">4</span></td><td><span class="sc s-4">4</span></td><td><span class="sc s-2">2</span></td><td><span class="sc s-4">4</span></td><td class="tot">14</td>
+          </tr>
+          <tr class="win">
+            <td><span class="g-name">Apretar con 4 dedos sosteniendo todo el cuerpo<span class="badge">Dosis 5</span></span>
+              <span class="g-why">El esfuerzo se reparte entre cuatro dedos y la palma, el pulgar solo sujeta y la muñeca queda recta. Una presión equivale a una dosis medida.</span></td>
+            <td><span class="sc s-4">4</span></td><td><span class="sc s-5">5</span></td><td><span class="sc s-5">5</span></td><td><span class="sc s-5">5</span></td><td class="tot">19</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="legend"><b>Escala 1 (peor) – 5 (mejor).</b> Los criterios salen de los principios de protección articular: no cargar las articulaciones pequeñas, no apretar fuerte, no girar ni repetir con la muñeca y repartir la carga en varias articulaciones <cite>(Hammond &amp; Freeman, 2001)</cite>. El puntaje de cada fila es nuestro análisis con esos criterios.</p>
+    </div>
+
+    <aside class="side">
+      <div class="verdict">
+        <h2>Hipótesis confirmada: los 4 dedos son lo más eficiente</h2>
+        <p>Es el único gesto que cumple los cuatro criterios a la vez. Además, la fuerza que pide es muy pequeña comparada con la que tiene la mano.</p>
+      </div>
+      <div class="fact"><span class="n">12×</span>
+        <p>Por eso descartamos la pinza: la base del pulgar recibe 12 veces la fuerza aplicada en la punta <cite>(Cooney &amp; Chao, 1977)</cite>.</p></div>
+      <div class="fact"><span class="n">4,4<small style="font-size:22px"> vs </small>26</span>
+        <p>Kilos de fuerza de una mujer de 60 a 64 años: 4,4 kg con la pinza de punta frente a 26 kg con toda la mano <cite>(Mathiowetz et al., 1985)</cite>.</p></div>
+      <div class="fact"><span class="n">2–3 %</span>
+        <p>Los 5–8 N que pide la barra de Dosis 5 son solo un 2–3 % de esos 26 kg. No hace falta apretar fuerte.</p></div>
+      <p class="nuance"><b>Por qué le damos 4 y no 5 en «A»:</b> en la artritis reumatoide también se inflaman los nudillos (articulaciones MCF). Por eso la fuerza debe seguir siendo baja y el recorrido corto (5 mm).</p>
+    </aside>
+  </div>
+
+  <div class="refs">
+    <b>Referencias</b>
+    <p>American Academy of Orthopaedic Surgeons. (s. f.). <em>Arthritis of the thumb</em>. OrthoInfo. https://orthoinfo.aaos.org/en/diseases--conditions/arthritis-of-the-thumb/</p>
+    <p>Cooney, W. P., III, &amp; Chao, E. Y. S. (1977). Biomechanical analysis of static forces in the thumb during hand function. <em>The Journal of Bone and Joint Surgery. American Volume, 59</em>(1), 27–36.</p>
+    <p>Hammond, A., &amp; Freeman, K. (2001). One-year outcomes of a randomized controlled trial of an educational–behavioural joint protection programme for people with rheumatoid arthritis. <em>Rheumatology, 40</em>(9), 1044–1051. https://doi.org/10.1093/rheumatology/40.9.1044</p>
+    <p>Mathiowetz, V., Kashman, N., Volland, G., Weber, K., Dowe, M., &amp; Rogers, S. (1985). Grip and pinch strength: Normative data for adults. <em>Archives of Physical Medicine and Rehabilitation, 66</em>(2), 69–74.</p>
+  </div>
+</div></section>
+
+<!-- ═════════════ DIAPOSITIVA 2 · USUARIO IDEAL ═════════════ -->
+<section class="frame"><div class="slide s2" id="s2">
+  <p class="kicker">Usuario ideal</p>
+  <h1>Una pareja recién casada que recibe a toda la familia en su mesa</h1>
+  <p class="lede">Ellos compran el salero, pero también lo usan sus padres y sus sobrinos. Cada característica de Dosis 5 responde a la necesidad de una de estas personas, y cada necesidad está respaldada por un dato.</p>
+
+  <div class="cols">
+    <div class="persona">
+      <h2>Laura (29) y Andrés (31)</h2>
+      <p>Se casaron hace poco y están equipando su cocina. Los domingos almuerzan con los padres de los dos, y los sobrinos vienen con los abuelos.</p>
+      <div class="who">
+        <div><b>Compran</b><span>la pareja: cocina, pone la mesa y elige qué objetos tener en casa</span></div>
+        <div><b>Usan</b><span>los padres de ambos (60–70 años) y los sobrinos (3–8 años)</span></div>
+      </div>
+      <p class="why"><b style="color:var(--accent)">¿Por qué esta familia?</b> Es el principio de diseño inclusivo «resolver para uno y extender a muchos» <cite style="color:inherit;opacity:.8">(Microsoft, 2016)</cite>. Si un salero funciona para una mano con artritis, también funciona para unas manos mojadas o con grasa mientras se cocina. Por eso diseñamos para el usuario más limitado de la mesa.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column">
+      <div class="needs">
+        <article class="need">
+          <span class="tag">Los padres · fácil uso</span>
+          <h3>Manos con dolor</h3>
+          <div><div class="lbl">Dato</div>
+            <p>El 48,3 % de los adultos con artritis tiene 65 años o más <cite>(Fallon et al., 2023)</cite>. Entre los mayores de 71, el 26,2 % de las mujeres tiene artrosis de mano con síntomas <cite>(Zhang et al., 2002)</cite>.</p></div>
+          <div class="sol"><div class="lbl">Qué resuelve Dosis 5</div>
+            <p>Se aprieta con 4 dedos, pide solo 5–8 N, no hay que girar nada y el pulgar no hace pinza (ver diapositiva anterior).</p></div>
+        </article>
+
+        <article class="need">
+          <span class="tag">Los niños · hermético</span>
+          <h3>Manos sucias en un objeto compartido</h3>
+          <div><div class="lbl">Dato</div>
+            <p>Un virus del resfriado dejado en una superficie de casa se detectó en los dedos de quien la tocó en el 89 % de los casos a la hora, y en el 53 % a las 48 h <cite>(Winther et al., 2007)</cite>.</p></div>
+          <div class="sol"><div class="lbl">Qué resuelve Dosis 5</div>
+            <p>Nadie toca la sal: la tapa magnética y las 5 válvulas de silicona se cierran solas. Además, la sal fina se apelmaza cuando la humedad supera el 75 % <cite>(Langlet et al., 2013)</cite>. Con el depósito cerrado sigue suelta y la dosis sale exacta.</p></div>
+        </article>
+
+        <article class="need">
+          <span class="tag">Toda la mesa · dosificación</span>
+          <h3>Saber cuánta sal se come</h3>
+          <div><div class="lbl">Dato</div>
+            <p>La OMS recomienda menos de 5 g de sal al día para un adulto y menos para un niño <cite>(WHO, 2012)</cite>. Hay 1280 millones de adultos con hipertensión <cite>(WHO, 2023)</cite>, y reducir la sal baja la presión <cite>(He et al., 2013)</cite>.</p></div>
+          <div class="sol"><div class="lbl">Qué resuelve Dosis 5</div>
+            <p>Cada presión da 0,5 g (5 cámaras × 0,1 g). Con 10 presiones se llega al tope del día, así que cada uno puede contar lo que se sirve.</p></div>
+        </article>
+      </div>
+      <div class="fix"><b>Ojo con los 5 g</b><span>Los 5 g de la OMS son el máximo para <em>todo el día</em>, no para una presión. Si cada presión diera 5 g, una sola agotaría el día. Por eso Dosis 5 entrega 0,5 g.</span></div>
+    </div>
+  </div>
+
+  <div class="refs">
+    <b>Referencias</b>
+    <p>Fallon, E. A., Boring, M. A., Foster, A. L., Stowe, E. W., Lites, T. D., Odom, E. L., &amp; Seth, P. (2023). Prevalence of diagnosed arthritis — United States, 2019–2021. <em>Morbidity and Mortality Weekly Report, 72</em>(41), 1101–1107. https://doi.org/10.15585/mmwr.mm7241a1</p>
+    <p>He, F. J., Li, J., &amp; MacGregor, G. A. (2013). Effect of longer term modest salt reduction on blood pressure: Cochrane systematic review and meta-analysis of randomised trials. <em>BMJ, 346</em>, f1325. https://doi.org/10.1136/bmj.f1325</p>
+    <p>Langlet, M., Benali, M., Pezron, I., Saleh, K., Guigon, P., &amp; Metlas-Komunjer, L. (2013). Caking of sodium chloride: Role of ambient relative humidity in dissolution and recrystallization process. <em>Chemical Engineering Science, 86</em>, 78–86.</p>
+    <p>Microsoft. (2016). <em>Inclusive design toolkit</em>. Microsoft Design. https://inclusive.microsoft.design/</p>
+    <p>Winther, B., McCue, K., Ashe, K., Rubino, J. R., &amp; Hendley, J. O. (2007). Environmental contamination with rhinovirus and transfer to fingers of healthy individuals by daily life activity. <em>Journal of Medical Virology, 79</em>(10), 1606–1610. https://doi.org/10.1002/jmv.20956</p>
+    <p>World Health Organization. (2012). <em>Guideline: Sodium intake for adults and children</em>. https://www.who.int/publications/i/item/9789241504836</p>
+    <p>World Health Organization. (2023). <em>Global report on hypertension: The race against a silent killer</em>. https://www.who.int/publications/i/item/9789240081062</p>
+    <p>Zhang, Y., Niu, J., Kelly-Hayes, M., Chaisson, C. E., Aliabadi, P., &amp; Felson, D. T. (2002). Prevalence of symptomatic hand osteoarthritis and its impact on functional status among the elderly: The Framingham Study. <em>American Journal of Epidemiology, 156</em>(11), 1021–1027. https://doi.org/10.1093/aje/kwf141</p>
+  </div>
+</div></section>
+
+</main>
+<script>
+// Escala cada diapositiva de 1920×1080 al tamaño de su marco
+function fit(){document.querySelectorAll('.frame').forEach(f=>{const s=f.querySelector('.slide');s.style.transform='scale('+(f.clientWidth/1920)+')';});}
+new ResizeObserver(fit).observe(document.body);fit();
+</script>
+</body>
+</html>
