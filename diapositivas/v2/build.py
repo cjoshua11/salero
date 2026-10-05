@@ -68,11 +68,33 @@ T["tr"]["s2_refs"] = T["es"]["s2_refs"]
 
 CSS = open(os.path.join(D,"style.css")).read()
 
+# Escenas ilustradas: (imagen, izquierda %, arriba %, ancho %, estilo extra) + zonas de dolor (x %, y %, tamaño %, color)
+RED, GREEN = "230,40,40", "40,170,90"
+SCENES = {
+ "girar":  dict(bg="#fdecec", items=[("270a",16,26,68,""),("1f504",62,6,30,""),("1f623",6,70,24,"")], glows=[(66,52,34,RED),(48,74,26,RED)]),
+ "sacudir":dict(bg="#fdecec", items=[("1f9c2",54,10,34,"transform:rotate(28deg)"),("1f44b",6,28,64,""),("1f623",68,70,24,"")], glows=[(44,72,30,RED)]),
+ "pinza":  dict(bg="#fdecec", items=[("1f90f",12,22,74,""),("1f623",6,72,24,"")], glows=[(62,62,30,RED),(76,30,18,RED)]),
+ "palma":  dict(bg="#fdf3e6", items=[("1f9c2",34,46,32,""),("1faf3",8,18,74,""),("1f615",70,72,24,"")], glows=[(16,40,30,RED)]),
+ "cuatro": dict(bg="#e8f6ee", items=[("1f9c2",30,14,40,""),("270a",20,40,58,""),("2705",68,6,26,""),("1f60a",6,72,24,"")], glows=[]),
+ "familia":dict(bg="#fff4e0", items=[("1f474",2,10,28,""),("1f475",22,4,28,""),("1f46b",46,2,30,""),("1f467",56,54,20,""),("1f9d2",76,48,22,""),("1f37d-fe0f",12,56,30,""),("1f9c2",40,58,13,"")], glows=[]),
+ "abuelos":dict(bg="#fdecec", items=[("1f475",6,6,58,""),("1f590-fe0f",44,44,52,""),("1f623",6,74,22,"")], glows=[(70,80,30,RED),(60,58,22,RED)]),
+ "ninos":  dict(bg="#eaf3fb", items=[("1f9d2",4,8,54,""),("1f9a0",50,6,30,""),("1f9c2",54,44,32,""),("1f512",30,64,26,"")], glows=[]),
+ "dosis":  dict(bg="#eef1f6", items=[("1f9c2",8,12,44,""),("1f944",44,30,50,"transform:rotate(10deg)")], glows=[], label="0,5 g"),
+}
+
 def img(name, t, cls=""):
-    p = f"img/{name}.jpg"
-    if os.path.exists(os.path.join(D,p)):
-        return f'<img class="{cls}" src="{p}" alt="">'
-    return f'<div class="ph {cls}">{t["ph"]}: {name}</div>'
+    sc = SCENES[name]
+    out = f'<div class="scene {cls}" style="background:{sc["bg"]}">'
+    for x,y,size,col in sc["glows"]:
+        out += f'<span class="glow" style="left:{x}%;top:{y}%;width:{size}%;background:radial-gradient(circle,rgba({col},.85) 0,rgba({col},.45) 35%,rgba({col},0) 70%)"></span>'
+    for src,l,tp,w,extra in sc["items"]:
+        out += f'<img src="img/{src}.webp" alt="" style="left:{l}%;top:{tp}%;width:{w}%;{extra}">'
+    for x,y,size,col in sc["glows"]:
+        if col == RED:
+            out += f'<span class="ring" style="left:{x}%;top:{y}%;width:{size*0.55}%"></span>'
+    if sc.get("label"):
+        out += f'<span class="lbl">{sc["label"]}</span>'
+    return out + '</div>'
 
 def build(code):
     t = T[code]

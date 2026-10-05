@@ -14,27 +14,31 @@ body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito","Segoe 
 .slide{position:absolute;inset:0 auto auto 0;width:1920px;height:1080px;transform-origin:0 0;background:var(--bg);padding:64px 80px 56px;display:flex;flex-direction:column}
 h1{font-size:60px;font-weight:800;margin:0;line-height:1.1;text-wrap:balance}
 .sub{font-size:30px;color:var(--muted);margin:6px 0 0}
-img,.ph{display:block;width:100%;object-fit:cover;border-radius:10px;background:var(--ph)}
+.scene{position:relative;display:block;width:100%;border-radius:12px;overflow:hidden}
+.scene img{position:absolute;height:auto;z-index:2;filter:drop-shadow(0 6px 10px rgba(0,0,0,.18))}
+.scene .glow{position:absolute;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;z-index:3;mix-blend-mode:multiply}
+.scene .ring{position:absolute;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:4px dashed rgba(210,30,30,.9);z-index:4}
+.scene .lbl{position:absolute;right:8%;bottom:8%;z-index:4;font-weight:800;font-size:64px;color:#c4663f}
 .ph{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:22px;border:2px dashed var(--line)}
 figure{margin:0}
 .grips{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-top:40px}
-.card img,.card .ph{aspect-ratio:3/4}
+.card .scene{aspect-ratio:3/4}
 .card figcaption{padding-top:14px;font-size:22px;line-height:1.3}
 .card b{font-size:27px;display:block}
 .card .score{display:inline-block;font-weight:800;font-size:24px;color:var(--accent);margin-top:2px}
 .card p{margin:8px 0 0;color:var(--muted)}
-.card.win img,.card.win .ph{outline:6px solid var(--good);outline-offset:-6px}
+.card.win .scene{outline:6px solid var(--good);outline-offset:-6px}
 .card.win .score{color:var(--good)}
 .best{font-style:normal;font-weight:800;font-size:18px;color:var(--bg);background:var(--good);border-radius:999px;padding:2px 12px;margin-left:10px;vertical-align:3px}
 .concl{font-size:32px;font-weight:700;margin:auto 0 10px}
 .refs{margin-top:auto;font-size:13.5px;line-height:1.35;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
 .refs b{display:block;color:var(--ink);font-size:15px;margin-bottom:3px}
 .refs p{margin:0 0 2px;padding-left:22px;text-indent:-22px}
-.s2grid{display:grid;grid-template-columns:680px 1fr;gap:36px;margin:auto 0}
-.family img,.family .ph{aspect-ratio:4/3}
+.s2grid{display:grid;grid-template-columns:680px 1fr;gap:36px;margin:60px 0 auto}
+.family .scene{aspect-ratio:4/3}
 .family figcaption{font-size:25px;line-height:1.35;margin-top:16px}
 .needs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.need img,.need .ph{aspect-ratio:4/5}
+.need .scene{aspect-ratio:4/5}
 .need figcaption{padding-top:14px;font-size:22px;line-height:1.3}
 .need b{font-size:26px;display:block}
 .need p{margin:8px 0 0;color:var(--muted)}
@@ -43,18 +47,18 @@ figure{margin:0}
 </style></head><body><main class="deck">
 <section class="frame"><div class="slide s1" id="s1">
  <h1>Artrit için en iyi tutuş hangisi?</h1><p class="sub">Bir tuzluğu kullanmanın 5 yolunu karşılaştırdık.</p>
- <div class="grips"><figure class="card"><div class="ph ">Fotoğraf: girar</div>
-  <figcaption><b>Çevirmek</b><span class="score">8/20</span><p>Çevirmek ve sıkıştırmak en çok ağrıtan hareketlerdir (AAOS, t.y.).</p></figcaption></figure><figure class="card"><div class="ph ">Fotoğraf: sacudir</div>
-  <figcaption><b>Sallamak</b><span class="score">9/20</span><p>Bilek tekrar tekrar hareket eder ve doz kontrol edilemez.</p></figcaption></figure><figure class="card"><div class="ph ">Fotoğraf: pinza</div>
-  <figcaption><b>Başparmakla sıkıştırmak</b><span class="score">11/20</span><p>Başparmağın tabanı uygulanan kuvvetin 12 katını taşır (Cooney ve Chao, 1977).</p></figcaption></figure><figure class="card"><div class="ph ">Fotoğraf: palma</div>
-  <figcaption><b>Avuçla bastırmak</b><span class="score">14/20</span><p>Daha iyi, ama bileği bükülü hâlde zorlar.</p></figcaption></figure><figure class="card win"><div class="ph ">Fotoğraf: cuatro</div>
+ <div class="grips"><figure class="card"><div class="scene " style="background:#fdecec"><span class="glow" style="left:66%;top:52%;width:34%;background:radial-gradient(circle,rgba(230,40,40,.85) 0,rgba(230,40,40,.45) 35%,rgba(230,40,40,0) 70%)"></span><span class="glow" style="left:48%;top:74%;width:26%;background:radial-gradient(circle,rgba(230,40,40,.85) 0,rgba(230,40,40,.45) 35%,rgba(230,40,40,0) 70%)"></span><img src="img/270a.webp" alt="" style="left:16%;top:26%;width:68%;"><img src="img/1f504.webp" alt="" style="left:62%;top:6%;width:30%;"><img src="img/1f623.webp" alt="" style="left:6%;top:70%;width:24%;"><span class="ring" style="left:66%;top:52%;width:18.700000000000003%"></span><span class="ring" style="left:48%;top:74%;width:14.3%"></span></div>
+  <figcaption><b>Çevirmek</b><span class="score">8/20</span><p>Çevirmek ve sıkıştırmak en çok ağrıtan hareketlerdir (AAOS, t.y.).</p></figcaption></figure><figure class="card"><div class="scene " style="background:#fdecec"><span class="glow" style="left:44%;top:72%;width:30%;background:radial-gradient(circle,rgba(230,40,40,.85) 0,rgba(230,40,40,.45) 35%,rgba(230,40,40,0) 70%)"></span><img src="img/1f9c2.webp" alt="" style="left:54%;top:10%;width:34%;transform:rotate(28deg)"><img src="img/1f44b.webp" alt="" style="left:6%;top:28%;width:64%;"><img src="img/1f623.webp" alt="" style="left:68%;top:70%;width:24%;"><span class="ring" style="left:44%;top:72%;width:16.5%"></span></div>
+  <figcaption><b>Sallamak</b><span class="score">9/20</span><p>Bilek tekrar tekrar hareket eder ve doz kontrol edilemez.</p></figcaption></figure><figure class="card"><div class="scene " style="background:#fdecec"><span class="glow" style="left:62%;top:62%;width:30%;background:radial-gradient(circle,rgba(230,40,40,.85) 0,rgba(230,40,40,.45) 35%,rgba(230,40,40,0) 70%)"></span><span class="glow" style="left:76%;top:30%;width:18%;background:radial-gradient(circle,rgba(230,40,40,.85) 0,rgba(230,40,40,.45) 35%,rgba(230,40,40,0) 70%)"></span><img src="img/1f90f.webp" alt="" style="left:12%;top:22%;width:74%;"><img src="img/1f623.webp" alt="" style="left:6%;top:72%;width:24%;"><span class="ring" style="left:62%;top:62%;width:16.5%"></span><span class="ring" style="left:76%;top:30%;width:9.9%"></span></div>
+  <figcaption><b>Başparmakla sıkıştırmak</b><span class="score">11/20</span><p>Başparmağın tabanı uygulanan kuvvetin 12 katını taşır (Cooney ve Chao, 1977).</p></figcaption></figure><figure class="card"><div class="scene " style="background:#fdf3e6"><span class="glow" style="left:16%;top:40%;width:30%;background:radial-gradient(circle,rgba(230,40,40,.85) 0,rgba(230,40,40,.45) 35%,rgba(230,40,40,0) 70%)"></span><img src="img/1f9c2.webp" alt="" style="left:34%;top:46%;width:32%;"><img src="img/1faf3.webp" alt="" style="left:8%;top:18%;width:74%;"><img src="img/1f615.webp" alt="" style="left:70%;top:72%;width:24%;"><span class="ring" style="left:16%;top:40%;width:16.5%"></span></div>
+  <figcaption><b>Avuçla bastırmak</b><span class="score">14/20</span><p>Daha iyi, ama bileği bükülü hâlde zorlar.</p></figcaption></figure><figure class="card win"><div class="scene " style="background:#e8f6ee"><img src="img/1f9c2.webp" alt="" style="left:30%;top:14%;width:40%;"><img src="img/270a.webp" alt="" style="left:20%;top:40%;width:58%;"><img src="img/2705.webp" alt="" style="left:68%;top:6%;width:26%;"><img src="img/1f60a.webp" alt="" style="left:6%;top:72%;width:24%;"></div>
   <figcaption><b>4 parmakla sıkmak</b><span class="score">19/20</span><em class="best">En iyi seçenek</em><p>Kuvveti dağıtır ve elin gücünün sadece %2–3'ünü ister (Mathiowetz vd., 1985).</p></figcaption></figure></div>
  <p class="concl">Sonuç: tuzluğu tutarken 4 parmakla sıkmak en az ağrıtan yoldur. Dosis 5 bu yüzden böyle çalışır.</p>
 </div></section>
 <section class="frame"><div class="slide s2" id="s2">
  <h1>İdeal kullanıcı: aileyi ağırlayan yeni evli bir çift</h1>
- <div class="s2grid"><figure class="family"><div class="ph ">Fotoğraf: familia</div><figcaption>Tuzluğu onlar satın alır; ama anne babaları ve yeğenleri de kullanır. En çok zorlanan için çalışıyorsa, herkes için çalışır (Microsoft, 2016).</figcaption></figure>
- <div class="needs"><figure class="need"><div class="ph ">Fotoğraf: abuelos</div><figcaption><b>Anne babalar: kolay kullanım</b><p>Artriti olanların neredeyse yarısı 65 yaşın üzerindedir (Fallon vd., 2023).</p><p class="sol">→ 4 parmakla sıkılır, çevirmek yok.</p></figcaption></figure><figure class="need"><div class="ph ">Fotoğraf: ninos</div><figcaption><b>Çocuklar: hijyen</b><p>Mikroplar yüzeylerden parmaklara geçer (Winther vd., 2007).</p><p class="sol">→ Hava geçirmez: kimse tuza dokunmaz.</p></figcaption></figure><figure class="need"><div class="ph ">Fotoğraf: dosis</div><figcaption><b>Herkes: doz</b><p>DSÖ günde 5 g'dan az tuz önerir (WHO, 2012).</p><p class="sol">→ Her basışta 0,5 g: 10 basış = günlük sınır.</p></figcaption></figure></div></div>
+ <div class="s2grid"><figure class="family"><div class="scene " style="background:#fff4e0"><img src="img/1f474.webp" alt="" style="left:2%;top:10%;width:28%;"><img src="img/1f475.webp" alt="" style="left:22%;top:4%;width:28%;"><img src="img/1f46b.webp" alt="" style="left:46%;top:2%;width:30%;"><img src="img/1f467.webp" alt="" style="left:56%;top:54%;width:20%;"><img src="img/1f9d2.webp" alt="" style="left:76%;top:48%;width:22%;"><img src="img/1f37d-fe0f.webp" alt="" style="left:12%;top:56%;width:30%;"><img src="img/1f9c2.webp" alt="" style="left:40%;top:58%;width:13%;"></div><figcaption>Tuzluğu onlar satın alır; ama anne babaları ve yeğenleri de kullanır. En çok zorlanan için çalışıyorsa, herkes için çalışır (Microsoft, 2016).</figcaption></figure>
+ <div class="needs"><figure class="need"><div class="scene " style="background:#fdecec"><span class="glow" style="left:70%;top:80%;width:30%;background:radial-gradient(circle,rgba(230,40,40,.85) 0,rgba(230,40,40,.45) 35%,rgba(230,40,40,0) 70%)"></span><span class="glow" style="left:60%;top:58%;width:22%;background:radial-gradient(circle,rgba(230,40,40,.85) 0,rgba(230,40,40,.45) 35%,rgba(230,40,40,0) 70%)"></span><img src="img/1f475.webp" alt="" style="left:6%;top:6%;width:58%;"><img src="img/1f590-fe0f.webp" alt="" style="left:44%;top:44%;width:52%;"><img src="img/1f623.webp" alt="" style="left:6%;top:74%;width:22%;"><span class="ring" style="left:70%;top:80%;width:16.5%"></span><span class="ring" style="left:60%;top:58%;width:12.100000000000001%"></span></div><figcaption><b>Anne babalar: kolay kullanım</b><p>Artriti olanların neredeyse yarısı 65 yaşın üzerindedir (Fallon vd., 2023).</p><p class="sol">→ 4 parmakla sıkılır, çevirmek yok.</p></figcaption></figure><figure class="need"><div class="scene " style="background:#eaf3fb"><img src="img/1f9d2.webp" alt="" style="left:4%;top:8%;width:54%;"><img src="img/1f9a0.webp" alt="" style="left:50%;top:6%;width:30%;"><img src="img/1f9c2.webp" alt="" style="left:54%;top:44%;width:32%;"><img src="img/1f512.webp" alt="" style="left:30%;top:64%;width:26%;"></div><figcaption><b>Çocuklar: hijyen</b><p>Mikroplar yüzeylerden parmaklara geçer (Winther vd., 2007).</p><p class="sol">→ Hava geçirmez: kimse tuza dokunmaz.</p></figcaption></figure><figure class="need"><div class="scene " style="background:#eef1f6"><img src="img/1f9c2.webp" alt="" style="left:8%;top:12%;width:44%;"><img src="img/1f944.webp" alt="" style="left:44%;top:30%;width:50%;transform:rotate(10deg)"><span class="lbl">0,5 g</span></div><figcaption><b>Herkes: doz</b><p>DSÖ günde 5 g'dan az tuz önerir (WHO, 2012).</p><p class="sol">→ Her basışta 0,5 g: 10 basış = günlük sınır.</p></figcaption></figure></div></div>
 </div></section>
 </main><script>
 function fit(){document.querySelectorAll('.frame').forEach(f=>{f.querySelector('.slide').style.transform='scale('+(f.clientWidth/1920)+')';});}
