@@ -95,13 +95,11 @@ def build(code):
  <h1>{t['s1_title']}</h1><p class="sub">{t['s1_sub']}</p>
  <div class="grips">{cards}</div>
  <p class="concl">{t['s1_concl']}</p>
- <div class="refs"><b>{t['refs']}</b>{refs(t['s1_refs'])}</div>
 </div></section>
 <section class="frame"><div class="slide s2" id="s2">
  <h1>{t['s2_title']}</h1>
  <div class="s2grid"><figure class="family">{img('familia',t)}<figcaption>{t['s2_family']}</figcaption></figure>
  <div class="needs">{needs}</div></div>
- <div class="refs"><b>{t['refs']}</b>{refs(t['s2_refs'])}</div>
 </div></section>
 </main><script>
 function fit(){{document.querySelectorAll('.frame').forEach(f=>{{f.querySelector('.slide').style.transform='scale('+(f.clientWidth/1920)+')';}});}}
