@@ -17,11 +17,11 @@ figure{margin:0}
 .card .photo.product{object-fit:contain;background:#e2e7ea}
 .card figcaption{padding-top:18px;font-size:25px;line-height:1.32}
 .card b{font-size:31px;display:block}
-.card .score{display:inline-block;font-weight:800;font-size:26px;color:var(--bad);margin-top:2px}
 .card p{margin:8px 0 0;color:var(--muted)}
 .card.win .photo{outline:6px solid var(--good);outline-offset:-6px}
-.card.win .score{color:var(--good)}
-.best{font-style:normal;font-weight:800;font-size:18px;color:var(--bg);background:var(--good);border-radius:999px;padding:2px 12px;margin-left:10px;vertical-align:4px}
+.card.win b{color:var(--good)}
+.card{position:relative}
+.best{position:absolute;top:20px;left:20px;z-index:1;font-style:normal;font-weight:800;font-size:20px;color:#fff;background:#2e8b57;border-radius:999px;padding:4px 14px}
 .concl{font-size:32px;font-weight:700;margin:auto 0 10px}
 
 .s2grid{display:grid;grid-template-columns:720px 1fr;gap:40px;margin:auto 0}

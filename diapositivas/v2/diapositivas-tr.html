@@ -22,11 +22,11 @@ figure{margin:0}
 .card .photo.product{object-fit:contain;background:#e2e7ea}
 .card figcaption{padding-top:18px;font-size:25px;line-height:1.32}
 .card b{font-size:31px;display:block}
-.card .score{display:inline-block;font-weight:800;font-size:26px;color:var(--bad);margin-top:2px}
 .card p{margin:8px 0 0;color:var(--muted)}
 .card.win .photo{outline:6px solid var(--good);outline-offset:-6px}
-.card.win .score{color:var(--good)}
-.best{font-style:normal;font-weight:800;font-size:18px;color:var(--bg);background:var(--good);border-radius:999px;padding:2px 12px;margin-left:10px;vertical-align:4px}
+.card.win b{color:var(--good)}
+.card{position:relative}
+.best{position:absolute;top:20px;left:20px;z-index:1;font-style:normal;font-weight:800;font-size:20px;color:#fff;background:#2e8b57;border-radius:999px;padding:4px 14px}
 .concl{font-size:32px;font-weight:700;margin:auto 0 10px}
 
 .s2grid{display:grid;grid-template-columns:720px 1fr;gap:40px;margin:auto 0}
@@ -49,8 +49,8 @@ figure{margin:0}
 @media print{@page{size:1920px 1080px;margin:0}body{padding:0}.deck{gap:0}.frame{width:1920px;height:1080px;max-width:none;border:0;border-radius:0;break-after:page}.slide{transform:none!important}}
 </style></head><body><main class="deck">
 <section class="frame"><div class="slide s1" id="s1">
- <h1>Artrit için en iyi tutuş hangisi?</h1><p class="sub">Bir tuzluğu kullanmanın 4 yolunu karşılaştırdık.</p>
- <div class="grips"><figure class="card"><img class="photo" src="img/pulgar.jpg" alt=""><figcaption><b>Çevirmek veya sıkıştırmak</b><span class="score">8–11/20</span><p>Başparmağın tabanı uygulanan kuvvetin 12 katını taşır (Cooney ve Chao, 1977). En çok ağrıtan budur (AAOS, t.y.).</p></figcaption></figure><figure class="card"><img class="photo" src="img/hombro.jpg" alt=""><figcaption><b>Sallamak</b><span class="score">9/20</span><p>Kolu ve omzu tekrar tekrar hareket ettirir, doz kontrol edilemez.</p></figcaption></figure><figure class="card"><img class="photo" src="img/muneca.jpg" alt=""><figcaption><b>Avuçla bastırmak</b><span class="score">14/20</span><p>Bileği geriye bükülü hâlde zorlar.</p></figcaption></figure><figure class="card win"><img class="photo product" src="img/producto.png" alt=""><figcaption><b>4 parmakla sıkmak</b><span class="score">19/20</span><em class="best">Dosis 5</em><p>Kuvveti dağıtır: elin gücünün sadece %2–3'ünü ister (Mathiowetz vd., 1985).</p></figcaption></figure></div>
+ <h1>Artrit için en iyi tutuş hangisi?</h1><p class="sub">Geleneksel yöntemlerden bizim yöntemimize.</p>
+ <div class="grips"><figure class="card"><img class="photo" src="img/pulgar.jpg" alt=""><figcaption><b>Değirmen: iki elle çevirmek</b><p>Çevirmek başparmağın tabanını ağrıtır (AAOS, t.y.); bu eklem uygulanan kuvvetin 12 katını taşır (Cooney ve Chao, 1977).</p></figcaption></figure><figure class="card"><img class="photo" src="img/hombro.jpg" alt=""><figcaption><b>Geleneksel tuzluk: sallamak</b><p>Kolu ve omzu tekrar tekrar hareket ettirir, doz kontrol edilemez.</p></figcaption></figure><figure class="card"><img class="photo" src="img/muneca.jpg" alt=""><figcaption><b>Pompalı kap: avuçla bastırmak</b><p>Bileği geriye bükülü hâlde zorlar.</p></figcaption></figure><figure class="card win"><em class="best">Bizim yöntemimiz</em><img class="photo product" src="img/producto.png" alt=""><figcaption><b>Dosis 5: 4 parmakla sıkmak</b><p>Kuvveti dağıtır: elin gücünün sadece %2–3'ünü ister (Mathiowetz vd., 1985).</p></figcaption></figure></div>
  <p class="concl">Sonuç: tuzluğu tutarken 4 parmakla sıkmak en az ağrıtan yoldur. Dosis 5 bu yüzden böyle çalışır.</p>
 </div></section>
 <section class="frame"><div class="slide s2" id="s2">

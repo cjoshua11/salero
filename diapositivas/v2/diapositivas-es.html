@@ -22,11 +22,11 @@ figure{margin:0}
 .card .photo.product{object-fit:contain;background:#e2e7ea}
 .card figcaption{padding-top:18px;font-size:25px;line-height:1.32}
 .card b{font-size:31px;display:block}
-.card .score{display:inline-block;font-weight:800;font-size:26px;color:var(--bad);margin-top:2px}
 .card p{margin:8px 0 0;color:var(--muted)}
 .card.win .photo{outline:6px solid var(--good);outline-offset:-6px}
-.card.win .score{color:var(--good)}
-.best{font-style:normal;font-weight:800;font-size:18px;color:var(--bg);background:var(--good);border-radius:999px;padding:2px 12px;margin-left:10px;vertical-align:4px}
+.card.win b{color:var(--good)}
+.card{position:relative}
+.best{position:absolute;top:20px;left:20px;z-index:1;font-style:normal;font-weight:800;font-size:20px;color:#fff;background:#2e8b57;border-radius:999px;padding:4px 14px}
 .concl{font-size:32px;font-weight:700;margin:auto 0 10px}
 
 .s2grid{display:grid;grid-template-columns:720px 1fr;gap:40px;margin:auto 0}
@@ -49,8 +49,8 @@ figure{margin:0}
 @media print{@page{size:1920px 1080px;margin:0}body{padding:0}.deck{gap:0}.frame{width:1920px;height:1080px;max-width:none;border:0;border-radius:0;break-after:page}.slide{transform:none!important}}
 </style></head><body><main class="deck">
 <section class="frame"><div class="slide s1" id="s1">
- <h1>¿Qué agarre es mejor para la artritis?</h1><p class="sub">Comparamos 4 formas de usar un salero.</p>
- <div class="grips"><figure class="card"><img class="photo" src="img/pulgar.jpg" alt=""><figcaption><b>Girar o pellizcar</b><span class="score">8–11/20</span><p>La base del pulgar carga 12 veces la fuerza aplicada (Cooney y Chao, 1977). Es lo que más duele (AAOS, s. f.).</p></figcaption></figure><figure class="card"><img class="photo" src="img/hombro.jpg" alt=""><figcaption><b>Sacudir</b><span class="score">9/20</span><p>Mueve brazo y hombro una y otra vez, y no controla la dosis.</p></figcaption></figure><figure class="card"><img class="photo" src="img/muneca.jpg" alt=""><figcaption><b>Empujar con la palma</b><span class="score">14/20</span><p>Carga la muñeca doblada hacia atrás.</p></figcaption></figure><figure class="card win"><img class="photo product" src="img/producto.png" alt=""><figcaption><b>Apretar con 4 dedos</b><span class="score">19/20</span><em class="best">Dosis 5</em><p>Reparte la fuerza: solo pide un 2–3 % de la fuerza de la mano (Mathiowetz et al., 1985).</p></figcaption></figure></div>
+ <h1>¿Qué agarre es mejor para la artritis?</h1><p class="sub">De los métodos convencionales a nuestro método.</p>
+ <div class="grips"><figure class="card"><img class="photo" src="img/pulgar.jpg" alt=""><figcaption><b>Molinillo: girar con las dos manos</b><p>Girar duele en la base del pulgar (AAOS, s. f.), que carga 12 veces la fuerza aplicada (Cooney y Chao, 1977).</p></figcaption></figure><figure class="card"><img class="photo" src="img/hombro.jpg" alt=""><figcaption><b>Salero tradicional: sacudir</b><p>Mueve brazo y hombro una y otra vez, y no controla la dosis.</p></figcaption></figure><figure class="card"><img class="photo" src="img/muneca.jpg" alt=""><figcaption><b>Dispensador de bomba: empujar con la palma</b><p>Carga la muñeca doblada hacia atrás.</p></figcaption></figure><figure class="card win"><em class="best">Nuestro método</em><img class="photo product" src="img/producto.png" alt=""><figcaption><b>Dosis 5: apretar con 4 dedos</b><p>Reparte la fuerza: solo pide un 2–3 % de la fuerza de la mano (Mathiowetz et al., 1985).</p></figcaption></figure></div>
  <p class="concl">Conclusión: apretar con 4 dedos sosteniendo el salero es lo que menos duele. Por eso Dosis 5 funciona así.</p>
 </div></section>
 <section class="frame"><div class="slide s2" id="s2">
