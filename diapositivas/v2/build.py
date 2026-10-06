@@ -14,7 +14,7 @@ T = {
    ("producto.png", "Dosis 5: apretar con 4 dedos", "Reparte la fuerza: solo pide un 2–3 % de la fuerza de la mano (Mathiowetz et al., 1985).", True),
   ],
   "best": "Nuestro método",
-  "s1_concl": "Conclusión: apretar con 4 dedos sosteniendo el salero es lo que menos duele. Por eso Dosis 5 funciona así.",
+  "s1_concl": "Conclusión: Dosis 5 se agarra con la muñeca recta y un ancho de 5 a 6 cm, la posición en la que la mano tiene más fuerza (Fransson y Winkel, 1991; O'Driscoll et al., 1992). Por eso cuesta menos y duele menos.",
   "s2_title": "Usuario ideal: una pareja recién casada que recibe a la familia",
   "facts": [
    "En 2024 se casaron <b>568.395 parejas</b> en Turquía, con 26 a 28 años de media (TÜİK, 2025).",
@@ -38,7 +38,7 @@ T = {
    ("producto.png", "Dosis 5: 4 parmakla sıkmak", "Kuvveti dağıtır: elin gücünün sadece %2–3'ünü ister (Mathiowetz vd., 1985).", True),
   ],
   "best": "Bizim yöntemimiz",
-  "s1_concl": "Sonuç: tuzluğu tutarken 4 parmakla sıkmak en az ağrıtan yoldur. Dosis 5 bu yüzden böyle çalışır.",
+  "s1_concl": "Sonuç: Dosis 5 düz bilekle ve 5–6 cm genişlikte tutulur; elin en güçlü olduğu pozisyon budur (Fransson ve Winkel, 1991; O'Driscoll vd., 1992). Bu yüzden daha az zorlar ve daha az ağrıtır.",
   "s2_title": "İdeal kullanıcı: aileyi ağırlayan yeni evli bir çift",
   "facts": [
    "2024'te Türkiye'de <b>568.395 çift</b> evlendi; ortalama evlenme yaşı 26 ile 28 arası (TÜİK, 2025).",
