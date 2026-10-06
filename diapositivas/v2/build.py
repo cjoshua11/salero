@@ -86,7 +86,7 @@ def build(code):
 </div></section>
 <section class="frame"><div class="slide s2" id="s2">
  <h1>{t['s2_title']}</h1>
- <div class="s2grid"><figure class="family"><img class="photo" src="img/familia.jpg" alt=""><ul>{facts}</ul></figure>
+ <div class="s2grid"><figure class="family"><img class="photo" src="img/pareja.png" alt=""><ul>{facts}</ul></figure>
  <div class="needs">{needs}</div></div>
 </div></section>
 </main><script>
