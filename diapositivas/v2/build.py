@@ -9,8 +9,8 @@ T = {
   "s1_sub": "De los métodos convencionales a nuestro método.",
   "grips": [
    ("pulgar.jpg", "Molinillo: girar con las dos manos", "Girar duele en la base del pulgar (AAOS, s. f.), que carga 12 veces la fuerza aplicada (Cooney y Chao, 1977).", False),
-   ("hombro.jpg", "Salero tradicional: sacudir", "Mueve brazo y hombro una y otra vez, y no controla la dosis.", False),
-   ("muneca.jpg", "Dispensador de bomba: empujar con la palma", "Carga la muñeca doblada hacia atrás.", False),
+   ("hombro.jpg", "Salero tradicional: sacudir", "No controla la dosis: con un salero común se echaron 7,86 g de media en una sola servida, más de lo recomendado para todo un día (Goffe et al., 2016).", False),
+   ("muneca.jpg", "Dispensador de bomba: empujar con la palma", "Empuja con la muñeca doblada hacia atrás: así la presión dentro de la muñeca sube de 2,5 a 30 mmHg, 12 veces más (Gelberman et al., 1981).", False),
    ("producto.png", "Dosis 5: apretar con 4 dedos", "Reparte la fuerza: solo pide un 2–3 % de la fuerza de la mano (Mathiowetz et al., 1985).", True),
   ],
   "best": "Nuestro método",
@@ -33,8 +33,8 @@ T = {
   "s1_sub": "Geleneksel yöntemlerden bizim yöntemimize.",
   "grips": [
    ("pulgar.jpg", "Değirmen: iki elle çevirmek", "Çevirmek başparmağın tabanını ağrıtır (AAOS, t.y.); bu eklem uygulanan kuvvetin 12 katını taşır (Cooney ve Chao, 1977).", False),
-   ("hombro.jpg", "Geleneksel tuzluk: sallamak", "Kolu ve omzu tekrar tekrar hareket ettirir, doz kontrol edilemez.", False),
-   ("muneca.jpg", "Pompalı kap: avuçla bastırmak", "Bileği geriye bükülü hâlde zorlar.", False),
+   ("hombro.jpg", "Geleneksel tuzluk: sallamak", "Doz kontrol edilemez: sıradan bir tuzlukla tek seferde ortalama 7,86 g tuz döküldü; bu, bir günlük önerilen miktardan fazladır (Goffe vd., 2016).", False),
+   ("muneca.jpg", "Pompalı kap: avuçla bastırmak", "Bilek geriye bükülü hâlde bastırır: bu pozisyonda bilek içindeki basınç 2,5'ten 30 mmHg'ye, yani 12 kat artar (Gelberman vd., 1981).", False),
    ("producto.png", "Dosis 5: 4 parmakla sıkmak", "Kuvveti dağıtır: elin gücünün sadece %2–3'ünü ister (Mathiowetz vd., 1985).", True),
   ],
   "best": "Bizim yöntemimiz",
