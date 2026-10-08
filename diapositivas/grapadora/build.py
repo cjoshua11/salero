@@ -120,7 +120,7 @@ def build(code):
  <h1>{t['s1_title']}</h1><p class="sub">{t['s1_sub']}</p>
  <div class="g1grid"><img class="diagram" src="img/despiece.jpg" alt=""><ol class="groups">{groups}</ol></div>
 </div></section>
-<section class="frame"><div class="slide gv" id="sv"><img src="img/vistas.jpg" alt=""></div></section>
+<section class="frame"><div class="slide gv" id="sv"><img src="img/vistas.png" alt=""></div></section>
 <section class="frame"><div class="slide gp" id="s2"><h1>{t['s2_title']}</h1><div class="parts">{s2}</div></div></section>
 <section class="frame"><div class="slide gp" id="s3"><h1>{t['s3_title']}</h1><div class="parts">{s3}</div></div></section>
 <section class="frame"><div class="slide gu" id="su"><h1>{t['u_title']}</h1><div class="steps">{steps}</div></div></section>
