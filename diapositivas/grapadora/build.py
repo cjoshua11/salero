@@ -79,13 +79,13 @@ def part(t, p):
         f'<figure class="pic">{"<figcaption>" + cap + "</figcaption>" if cap else ""}<img class="photo" src="img/{src}" alt=""></figure>'
         for src, cap in pics)
     return (f'<article class="part"><div class="pics n{len(pics)}">{imgs}</div>'
-            f'<h2><span class="num">{num}</span>{name}</h2><dl>'
+            f'<h2><span class="num">{num})</span>{name}</h2><dl>'
             f'<dt>{t["k_mat"]}</dt><dd>{mat}</dd><dt>{t["k_why"]}</dt><dd>{why}</dd><dt>{t["k_fn"]}</dt><dd>{fn}</dd></dl></article>')
 
 
 def build(code):
     t = T[code]
-    groups = "".join(f'<li><span class="num">{n}</span><div><b>{g}</b><span>{l}</span></div></li>' for n, g, l in t["groups"])
+    groups = "".join(f'<li><span class="num">{n})</span><div><b>{g}</b><span>{l}</span></div></li>' for n, g, l in t["groups"])
     s2 = "".join(part(t, p) for p in t["parts"][:2])
     s3 = "".join(part(t, p) for p in t["parts"][2:])
     html = f'''<!doctype html>
