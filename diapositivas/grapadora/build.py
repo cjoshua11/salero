@@ -17,6 +17,20 @@ T = {
   "k_mat": "Material", "k_why": "Por qué", "k_fn": "Función",
   "s2_title": "La carcasa y el mecanismo",
   "s3_title": "Los resortes y el soporte",
+  "v_title": "Vistas de la grapadora",
+  "v_sub": "Boceto con las vistas superior, frontal y lateral.",
+  "v_labels": ("Vista superior", "Vista frontal", "Vista lateral"),
+  "u_title": "Cómo usar la grapadora",
+  "steps": [
+   ("Grapadora vacía", "Abre la grapadora y revisa que no tenga grapas en el cargador."),
+   ("Toma las grapas", "Saca una tira de grapas del paquete (usualmente vienen en tiras unidas)."),
+   ("Abre el cargador", "Levanta la parte superior de la grapadora o el mecanismo de carga, e inserta las grapas."),
+   ("Cierra la grapadora", "Baja la parte superior hasta que haga clic y quede bien cerrada."),
+   ("Prepara las hojas", "Junta y alinea bien las páginas del documento que vas a unir."),
+   ("Coloca las hojas", "Introduce el borde de las hojas entre la base y la cabeza de la grapadora, en el lugar donde quieres la grapa."),
+   ("Presiona", "Baja la parte superior con firmeza (solo necesitas un movimiento decidido, no mucha fuerza)."),
+   ("La grapa atraviesa las hojas", "La grapa atraviesa las hojas y sus dos extremos se doblan por debajo."),
+  ],
   "parts": [
    ("1", "Carcasa exterior (cuerpo)", [("carcasa.jpg", None)],
     "Plástico de ingeniería (ABS o policarbonato).",
@@ -49,6 +63,20 @@ T = {
   "k_mat": "Malzeme", "k_why": "Neden", "k_fn": "İşlevi",
   "s2_title": "Gövde ve mekanizma",
   "s3_title": "Yaylar ve taşıyıcı parçalar",
+  "v_title": "Zımbanın görünüşleri",
+  "v_sub": "Üstten, önden ve yandan görünüş eskizi.",
+  "v_labels": ("Üstten görünüş", "Önden görünüş", "Yandan görünüş"),
+  "u_title": "Zımba nasıl kullanılır",
+  "steps": [
+   ("Boş zımba", "Zımbayı aç ve şarjörde tel kalmadığını kontrol et."),
+   ("Telleri al", "Paketten bir sıra zımba teli çıkar (genellikle birbirine bağlı sıralar hâlinde gelir)."),
+   ("Şarjörü aç", "Zımbanın üst kısmını veya yükleme mekanizmasını kaldır ve telleri yerleştir."),
+   ("Zımbayı kapat", "Üst kısmı klik sesi gelene ve iyice kapanana kadar indir."),
+   ("Kâğıtları hazırla", "Birleştireceğin belgenin sayfalarını bir araya getir ve iyice hizala."),
+   ("Kâğıtları yerleştir", "Kâğıtların kenarını, telin olmasını istediğin yerde taban ile zımba başı arasına sok."),
+   ("Bastır", "Üst kısmı kararlı bir şekilde indir (tek kararlı bir hareket yeterli, çok kuvvet gerekmez)."),
+   ("Tel kâğıtları deler", "Tel kâğıtlardan geçer ve iki ucu alttan bükülür."),
+  ],
   "parts": [
    ("1", "Dış gövde", [("carcasa.jpg", None)],
     "Mühendislik plastiği (ABS veya polikarbonat).",
@@ -88,6 +116,9 @@ def build(code):
     groups = "".join(f'<li><span class="num">{n})</span><div><b>{g}</b><span>{l}</span></div></li>' for n, g, l in t["groups"])
     s2 = "".join(part(t, p) for p in t["parts"][:2])
     s3 = "".join(part(t, p) for p in t["parts"][2:])
+    va, vb, vc = t["v_labels"]
+    steps = "".join(f'<figure class="step"><img class="photo" src="img/paso{i}.jpg" alt=""><figcaption><b>{i}) {h}:</b> {d}</figcaption></figure>'
+                    for i, (h, d) in enumerate(t["steps"], 1))
     html = f'''<!doctype html>
 <html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{t['title']}</title>
@@ -96,8 +127,12 @@ def build(code):
  <h1>{t['s1_title']}</h1><p class="sub">{t['s1_sub']}</p>
  <div class="g1grid"><img class="diagram" src="img/despiece.jpg" alt=""><ol class="groups">{groups}</ol></div>
 </div></section>
+<section class="frame"><div class="slide gv" id="sv"><h1>{t['v_title']}</h1><p class="sub">{t['v_sub']}</p>
+ <div class="views"><img src="img/vistas.jpg" alt=""><span class="vl" style="left:33%;top:22%">{va}</span><span class="vl" style="left:14%;top:91%">{vb}</span><span class="vl" style="left:58%;top:91%">{vc}</span></div>
+</div></section>
 <section class="frame"><div class="slide gp" id="s2"><h1>{t['s2_title']}</h1><div class="parts">{s2}</div></div></section>
 <section class="frame"><div class="slide gp" id="s3"><h1>{t['s3_title']}</h1><div class="parts">{s3}</div></div></section>
+<section class="frame"><div class="slide gu" id="su"><h1>{t['u_title']}</h1><div class="steps">{steps}</div></div></section>
 </main><script>
 function fit(){{document.querySelectorAll('.frame').forEach(f=>{{f.querySelector('.slide').style.transform='scale('+(f.clientWidth/1920)+')';}});}}
 new ResizeObserver(fit).observe(document.body);fit();
