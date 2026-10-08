@@ -17,9 +17,6 @@ T = {
   "k_mat": "Material", "k_why": "Por qué", "k_fn": "Función",
   "s2_title": "La carcasa y el mecanismo",
   "s3_title": "Los resortes y el soporte",
-  "v_title": "Vistas de la grapadora",
-  "v_sub": "Boceto con las vistas superior, frontal y lateral.",
-  "v_labels": ("Vista superior", "Vista frontal", "Vista lateral"),
   "u_title": "Cómo usar la grapadora",
   "steps": [
    ("Grapadora vacía", "Abre la grapadora y revisa que no tenga grapas en el cargador."),
@@ -63,9 +60,6 @@ T = {
   "k_mat": "Malzeme", "k_why": "Neden", "k_fn": "İşlevi",
   "s2_title": "Gövde ve mekanizma",
   "s3_title": "Yaylar ve taşıyıcı parçalar",
-  "v_title": "Zımbanın görünüşleri",
-  "v_sub": "Üstten, önden ve yandan görünüş eskizi.",
-  "v_labels": ("Üstten görünüş", "Önden görünüş", "Yandan görünüş"),
   "u_title": "Zımba nasıl kullanılır",
   "steps": [
    ("Boş zımba", "Zımbayı aç ve şarjörde tel kalmadığını kontrol et."),
@@ -116,7 +110,6 @@ def build(code):
     groups = "".join(f'<li><span class="num">{n})</span><div><b>{g}</b><span>{l}</span></div></li>' for n, g, l in t["groups"])
     s2 = "".join(part(t, p) for p in t["parts"][:2])
     s3 = "".join(part(t, p) for p in t["parts"][2:])
-    va, vb, vc = t["v_labels"]
     steps = "".join(f'<figure class="step"><img class="photo" src="img/paso{i}.jpg" alt=""><figcaption><b>{i}) {h}:</b> {d}</figcaption></figure>'
                     for i, (h, d) in enumerate(t["steps"], 1))
     html = f'''<!doctype html>
@@ -127,9 +120,7 @@ def build(code):
  <h1>{t['s1_title']}</h1><p class="sub">{t['s1_sub']}</p>
  <div class="g1grid"><img class="diagram" src="img/despiece.jpg" alt=""><ol class="groups">{groups}</ol></div>
 </div></section>
-<section class="frame"><div class="slide gv" id="sv"><h1>{t['v_title']}</h1><p class="sub">{t['v_sub']}</p>
- <div class="views"><img src="img/vistas.jpg" alt=""><span class="vl" style="left:33%;top:22%">{va}</span><span class="vl" style="left:14%;top:91%">{vb}</span><span class="vl" style="left:58%;top:91%">{vc}</span></div>
-</div></section>
+<section class="frame"><div class="slide gv" id="sv"><img src="img/vistas.jpg" alt=""></div></section>
 <section class="frame"><div class="slide gp" id="s2"><h1>{t['s2_title']}</h1><div class="parts">{s2}</div></div></section>
 <section class="frame"><div class="slide gp" id="s3"><h1>{t['s3_title']}</h1><div class="parts">{s3}</div></div></section>
 <section class="frame"><div class="slide gu" id="su"><h1>{t['u_title']}</h1><div class="steps">{steps}</div></div></section>
