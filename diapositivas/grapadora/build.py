@@ -91,8 +91,6 @@ def build(code):
     html = f'''<!doctype html>
 <html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{t['title']}</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap">
 <style>{CSS}</style></head><body><main class="deck">
 <section class="frame"><div class="slide g1" id="s1">
  <h1>{t['s1_title']}</h1><p class="sub">{t['s1_sub']}</p>
