@@ -112,23 +112,52 @@ def build(code):
     s3 = "".join(part(t, p) for p in t["parts"][2:])
     steps = "".join(f'<figure class="step"><img class="photo" src="img/paso{i}.jpg" alt=""><figcaption><b>{i}) {h}:</b> {d}</figcaption></figure>'
                     for i, (h, d) in enumerate(t["steps"], 1))
-    html = f'''<!doctype html>
-<html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{t['title']}</title>
-<style>{CSS}</style></head><body><main class="deck">
-<section class="frame"><div class="slide g1" id="s1">
+    slides = f'''<section class="frame"><div class="slide g1" id="s1">
  <h1>{t['s1_title']}</h1><p class="sub">{t['s1_sub']}</p>
  <div class="g1grid"><img class="diagram" src="img/despiece.jpg" alt=""><ol class="groups">{groups}</ol></div>
 </div></section>
 <section class="frame"><div class="slide gv" id="sv"><img src="img/vistas.png" alt=""></div></section>
 <section class="frame"><div class="slide gp" id="s2"><h1>{t['s2_title']}</h1><div class="parts">{s2}</div></div></section>
 <section class="frame"><div class="slide gp" id="s3"><h1>{t['s3_title']}</h1><div class="parts">{s3}</div></div></section>
-<section class="frame"><div class="slide gu" id="su"><h1>{t['u_title']}</h1><div class="steps">{steps}</div></div></section>
+<section class="frame"><div class="slide gu" id="su"><h1>{t['u_title']}</h1><div class="steps">{steps}</div></div></section>'''
+    html = f'''<!doctype html>
+<html lang="{t['lang']}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{t['title']}</title>
+<style>{CSS}</style></head><body><main class="deck">
+{slides}
 </main><script>
 function fit(){{document.querySelectorAll('.frame').forEach(f=>{{f.querySelector('.slide').style.transform='scale('+(f.clientWidth/1920)+')';}});}}
 new ResizeObserver(fit).observe(document.body);fit();
 </script></body></html>'''
     open(os.path.join(D, f"grapadora-{code}.html"), "w").write(html)
+    build_pafta(t, code, slides)
+
+
+# Formato de entrega: pafta A3 de ENT 305 (img/pafta.svg) con cada diapositiva dentro del marco.
+ALUMNO = "Camilo Urdaneta"
+FECHA = "08.10.2026"
+PAFTA_CSS = """
+@page{size:1190.52pt 822pt;margin:0}
+body{padding:0;background:#fff}
+.sheet{position:relative;width:1190.52pt;height:822pt;overflow:hidden;break-after:page;background:#fff url(img/pafta.svg) 0 0/100% 100% no-repeat}
+.sheet .area{position:absolute;left:26pt;top:23pt;width:1136pt;height:694pt;overflow:hidden}
+.sheet .frame{position:static;width:auto!important;height:auto!important;max-width:none;aspect-ratio:auto;border:0;border-radius:0;overflow:visible}
+.sheet .slide{position:relative;height:1173px;transform:none!important;zoom:0.78889}
+.sheet .tb{position:absolute;font:700 21.12pt/1 Calibri,Carlito,Arial,sans-serif;color:#000;white-space:nowrap;background:#fff}
+"""
+
+
+def build_pafta(t, code, slides):
+    sheets = "".join(
+        f'<div class="sheet"><div class="area"><section class="frame">{s}</div>'
+        f'<span class="tb" style="left:710pt;top:724.68pt">{ALUMNO}</span>'
+        f'<span class="tb" style="left:726.9pt;top:775.56pt;padding-right:4pt">{FECHA}</span></div>'
+        for s in slides.split('<section class="frame">')[1:])
+    html = f'''<!doctype html>
+<html lang="{t['lang']}"><head><meta charset="utf-8">
+<title>{t['title']}</title>
+<style>{CSS}{PAFTA_CSS}</style></head><body>{sheets}</body></html>'''
+    open(os.path.join(D, f"grapadora-{code}-entrega.html"), "w").write(html)
 
 
 for c in T:
