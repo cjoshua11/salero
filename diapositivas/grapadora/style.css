@@ -1,0 +1,21 @@
+
+/* Partes de la grapadora: se suma al estilo base de v2 */
+.num{display:inline-flex;align-items:center;justify-content:center;flex:none;width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--bg);font-weight:800;font-size:26px}
+.g1grid{display:grid;grid-template-columns:1150px 1fr;gap:56px;align-items:center;margin:auto 0}
+.diagram{width:100%;border-radius:12px;background:#fff}
+.groups{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:34px}
+.groups li{display:flex;gap:20px;align-items:flex-start}
+.groups b{display:block;font-size:34px;line-height:1.15}
+.groups li span:not(.num){display:block;font-size:23px;color:var(--muted);margin-top:4px;line-height:1.3}
+
+.parts{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:36px;flex:1}
+.part{display:flex;flex-direction:column}
+.pics{display:grid;gap:20px;grid-template-rows:380px}
+.pics.n2{grid-template-columns:1fr 1fr}
+.pic{position:relative;min-height:0;min-width:0}
+.pic .photo{height:380px;object-fit:contain;background:#fff;border:1px solid var(--line)}
+.pic figcaption{position:absolute;top:14px;left:14px;font-weight:800;font-size:20px;color:#fff;background:#2b2b2b;border-radius:999px;padding:3px 14px}
+.part h2{display:flex;gap:16px;align-items:center;font-size:34px;line-height:1.15;margin:26px 0 18px;text-wrap:balance}
+.part dl{margin:0;display:grid;grid-template-columns:150px 1fr;gap:12px 20px;font-size:24px;line-height:1.35}
+.part dt{font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.04em;font-size:19px;padding-top:4px}
+.part dd{margin:0;color:var(--ink)}
